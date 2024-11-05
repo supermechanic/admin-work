@@ -7,10 +7,10 @@
           <div class="logo-wrapper">
             <img src="../../assets/logo.png" />
           </div>
-          <div class="title">Admin Work</div>
-          <div class="sub-title">Vue3 + Vite5 + TypeScript + Naive UI</div>
-          <div class="flex-1 flex justify-center items-center ttppii"> 生活，应该还有诗和远方 </div>
-          <div class="bottom-wrapper">Admin Work {{ version }} · Made by qingqingxuan</div>
+          <div class="title">AI Workstation</div>
+          <div class="sub-title">疯狂ai工具集，包含了数字人工具等</div>
+          <div class="flex-1 flex justify-center items-center ttppii"> 未来就在眼前 </div>
+          <div class="bottom-wrapper">AI Workstation {{ version }} · Made by Machina</div>
         </div>
       </div>
       <div class="right">
@@ -139,7 +139,7 @@
     components: { PhoneIcon, PasswordIcon, LogoGithub, LogoAlipay, LogoWechat },
     setup() {
       const { version } = useAppInfo()
-      const username = ref('admin')
+      const username = ref('machina')
       const password = ref('123456')
       const autoLogin = ref(true)
       const loading = ref(false)

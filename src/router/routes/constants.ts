@@ -10,6 +10,14 @@ export const constantRoutes = [
     },
   },
   {
+    path: '/digital',
+    name: 'DigitalMan',
+    component:() => import('@/views/digitalman/index.vue'),
+    meta: {
+      hidden: true,
+    },
+  },
+  {
     path: '/redirect',
     component: LAYOUT,
     meta: {

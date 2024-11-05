@@ -1,3 +1,4 @@
+//此拦截器主要用于在http头中添加认证相关信息
 import { useUserStoreContext } from '@/store/modules/user'
 import { AxiosRequestConfig } from 'axios'
 

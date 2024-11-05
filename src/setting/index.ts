@@ -7,7 +7,7 @@ import {
   ThemeMode,
 } from '@/store/types'
 
-export const projectName = 'Admin Work'
+export const projectName = 'AI Workstation'
 
 export default {
   theme: ThemeMode.LIGHT,
