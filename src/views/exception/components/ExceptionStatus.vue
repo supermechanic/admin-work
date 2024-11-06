@@ -54,7 +54,7 @@
     },
     methods: {
       backHome() {
-        this.$router.replace({ path: '/' })
+        this.$router.replace({ path: '/index' })
       },
     },
   })

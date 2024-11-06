@@ -1,6 +1,6 @@
 {
-  "name": "admin-work",
-  "version": "2.1.8",
+  "name": "ai-collection",
+  "version": "0.0.1",
   "type": "module",
   "scripts": {
     "dev": "vite --host",

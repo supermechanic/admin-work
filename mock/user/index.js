@@ -23,13 +23,29 @@ Mock.mock(RegExp(login), 'post', function (options) {
       },
     ]
     baseData.data = data
+  }else if (username === 'machina') {
+    baseData.code = 200
+    baseData.msg = '登录成功'
+    data.nickName = '操作员'
+    data.userName = 'operator'
+    data.userId = 2
+    data.roleId = 2
+    data.token = randomString(100)
+    data.roles = [
+      {
+        roleCode: 'ROLE_operator',
+        roleId: 2,
+        roleName: '网站操作人员',
+      },
+    ]
+    baseData.data = data
   } else if (username === 'editor') {
     baseData.code = 200
     baseData.msg = '登录成功'
     data.nickName = '编辑员'
     data.userName = 'editor'
-    data.userId = 2
-    data.roleId = 2
+    data.userId = 3
+    data.roleId = 3
     data.token = randomString(100)
     data.roles = [
       {
