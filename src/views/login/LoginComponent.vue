@@ -144,19 +144,23 @@ export default defineComponent({
       })
         .then(({ data }: Response) => {
           userStore.saveUser(data as UserState).then(() => {
-            console.log(route.query)
-            router
+            if (userStore.roleId == 2){
+              router
               .replace({
                 name: "DigitalMan"
-              })
-              // .replace({
-              //   path: route.query.redirect ? (route.query.redirect as string) : '/',
-              // })
-              .then(() => {
+              }).then(() => {
                 loading.value = false
               })
+            }else if (userStore.roleId == 1){
+              router.replace({
+                path: route.query.redirect ? (route.query.redirect as string) : '/',
+              }).then(() => {
+                loading.value = false
+              })
+            }
+             
             console.log("login success")
-            console.log(data)
+
           })
         })
         .catch((error) => {
