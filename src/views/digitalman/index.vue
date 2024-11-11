@@ -1,33 +1,63 @@
 <template>
-    <n-config-provider :theme-overrides="themeOverrides" :theme="theme" :locale="zhCN" style="height: 100%">
-        <n-global-style />
-        <n-loading-bar-provider>
-            <n-dialog-provider>
-                <n-el class="vaw-layout-container" :class="[appConfig.deviceType === 'mobile' && 'is-mobile']">
-                    <template>
-                        <SideBar />
-                        <MainLayout />
-                    </template>
-                </n-el>
-            </n-dialog-provider>
-        </n-loading-bar-provider>
-    </n-config-provider>
+    <n-loading-bar-provider>
+        <n-message-provider>
+            <n-notification-provider>
+                <n-modal-provider>
+                    <n-dialog-provider>
+                        <demo />
+                    </n-dialog-provider>
+                </n-modal-provider>
+            </n-notification-provider>
+        </n-message-provider>
+    </n-loading-bar-provider>
 </template>
-<script setup lang="ts">
-import useAppConfigStore from '@/store/modules/app-config'
-import { darkTheme, zhCN } from 'naive-ui'
-import { computed, defineComponent, onBeforeUnmount, onMounted } from 'vue'
-import { DeviceType, ThemeMode } from '@/store/types'
-import useAxios from '@/hooks/useAxios'
-import CustomRequestInterceptor from '@/api/interceptors/CustomRequestInterceptor'
-const appConfig = useAppConfigStore()
-const axios = useAxios()
-axios.interceptors.request.use((config) => {
-    return CustomRequestInterceptor(config)
-})
-const theme = computed(() => {
-        return appConfig.theme === ThemeMode.DARK ? darkTheme : null
-      })
+
+<script lang="ts">
+import { defineComponent } from "vue";
+import Demo from "./demo.vue";
+
+export default defineComponent({
+components: {
+  Demo,
+},
+});
 </script>
 
-<style lang="scss"></style>
+<style scoped lang="scss">
+.vaw-layout-container {
+    height: 100%;
+    max-width: 100%;
+    overflow-x: hidden;
+
+    .mobile-shadow {
+        display: none;
+    }
+
+    .layout-mode-ttb {
+        margin-top: $logoHeight;
+        transition: all $transitionTime;
+    }
+}
+
+.is-mobile {
+    .mobile-shadow {
+        background-color: #000000;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100vw;
+        height: 100vh;
+        z-index: 997;
+    }
+
+    .close-shadow {
+        display: none;
+    }
+
+    .show-shadow {
+        display: block;
+        opacity: 0.5;
+        transition: all $transitionTime;
+    }
+}
+</style>
