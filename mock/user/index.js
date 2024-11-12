@@ -2,7 +2,7 @@ import { getMenuListByRoleId, getAllMenuByRoleId, login, updateUserInfo } from '
 import { randomString } from '@/utils'
 import Mock from 'mockjs'
 import { baseData } from '../base.ts'
-import { adminRoutes, editorRoutes } from '../router'
+import { adminRoutes, editorRoutes, operatorRoutes } from '../router'
 
 Mock.mock(RegExp(login), 'post', function (options) {
   const username = JSON.parse(options.body).username
@@ -93,11 +93,18 @@ Mock.mock(RegExp(getMenuListByRoleId), 'post', function (options) {
       data: editorRoutes,
       msg: '获取菜单列表成功',
     })
-  } else {
+  }else if (parseInt(roleId) == 3){
+    return Mock.mock({
+      code: 200,
+      data: operatorRoutes,
+      msg: '获取菜单列表成功'
+    })
+  }
+   else {
     return Mock.mock({
       code: 500,
       data: '',
-      msg: '目前仅支持超级管理员和编辑人员菜单',
+      msg: '目前仅支持超级管理员，操作员和编辑人员菜单',
     })
   }
 })

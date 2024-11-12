@@ -584,7 +584,65 @@ export const editorRoutes = [
     ],
   },
 ]
+export const operatorRoutes = [
+  {
+    menuUrl: '/list',
+    menuName: '列表页面',
+    iconPrefix: 'iconfont',
+    icon: 'detail',
+    parentPath: '',
+    children: [
+      {
+        parentPath: '/list',
+        menuUrl: '/list/table-with-search',
+        menuName: '表格搜索',
+      },
+      {
+        parentPath: '/list',
+        menuUrl: '/list/table-custom',
+        menuName: '自定义表格',
+      },
+      {
+        parentPath: '/list',
+        menuUrl: '/list/list',
+        menuName: '普通列表',
+      },
+      {
+        parentPath: '/list',
+        menuUrl: '/list/card-list',
+        menuName: '卡片列表',
+      },
+    ],
+  },
+  {
+    menuUrl: '/form',
+    menuName: '表单页面',
+    badge: 'dot',
+    iconPrefix: 'iconfont',
+    icon: 'file-text',
+    parentPath: '',
+    children: [
+      {
+        parentPath: '/form',
+        menuUrl: '/form/base-form-view',
+        menuName: '动态表单',
+        cacheable: true,
+      },
+      {
+        parentPath: '/form',
+        menuUrl: '/form/advance-form',
+        menuName: '高级表单',
+        cacheable: true,
+      },
+      {
+        parentPath: '/form',
+        menuUrl: '/form/step-form',
+        menuName: '分步表单',
+      },
+    ],
+  },
 
+]
 Mock.mock(RegExp(getMenuList), 'post', function () {
   return Mock.mock({ code: 200, data: adminRoutes, msg: '获取菜单列表成功' })
 })

@@ -54,7 +54,7 @@
     <div v-else class="m-login-container">
       <div class="header">
         <div class="the-p"> P </div>
-        <div class="mt-4 text-lg font-bold text-white"> Admin Work </div>
+        <div class="mt-4 text-lg font-bold text-white">AI Workstation </div>
       </div>
       <div class="content">
         <n-input round placeholder="请输入用户名/手机号" size="large" v-model:value="username">
@@ -144,14 +144,14 @@ export default defineComponent({
       })
         .then(({ data }: Response) => {
           userStore.saveUser(data as UserState).then(() => {
-            if (userStore.roleId == 2){
+            if (userStore.roleId == 3){
               router
               .replace({
                 name: "DigitalMan"
               }).then(() => {
                 loading.value = false
               })
-            }else if (userStore.roleId == 1){
+            }else if ((userStore.roleId == 1) || (userStore.roleId == 2)){
               router.replace({
                 path: route.query.redirect ? (route.query.redirect as string) : '/',
               }).then(() => {
