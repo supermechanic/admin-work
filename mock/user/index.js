@@ -28,8 +28,8 @@ Mock.mock(RegExp(login), 'post', function (options) {
     baseData.msg = '登录成功'
     data.nickName = '操作员'
     data.userName = 'operator'
-    data.userId = 2
-    data.roleId = 2
+    data.userId = 3
+    data.roleId = 3
     data.token = randomString(100)
     data.roles = [
       {
@@ -44,8 +44,8 @@ Mock.mock(RegExp(login), 'post', function (options) {
     baseData.msg = '登录成功'
     data.nickName = '编辑员'
     data.userName = 'editor'
-    data.userId = 3
-    data.roleId = 3
+    data.userId = 2
+    data.roleId = 2
     data.token = randomString(100)
     data.roles = [
       {
