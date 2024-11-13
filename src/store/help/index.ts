@@ -90,8 +90,9 @@ export function getNameByUrl(menuUrl: string) {
   const temp = menuUrl.split('/')
   return toHump(temp[temp.length - 1])
 }
-
+//根据返回的菜单列表生成路由项
 export function generatorRoutes(res: Array<OriginRoute>) {
+  console.log(res)
   const tempRoutes: Array<RouteRecordRaw> = []
   res.forEach((it) => {
     const isMenuFlag = isMenu(it)
@@ -121,6 +122,8 @@ export function generatorRoutes(res: Array<OriginRoute>) {
       tempRoutes.push(route)
     }
   })
+  //调试学习使用
+  console.log(tempRoutes)
   return tempRoutes
 }
 

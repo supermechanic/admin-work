@@ -6,6 +6,8 @@ export const test = '/test'
 
 export const login = '/login'
 
+export const refresh_token = ""
+
 export const updateUserInfo = '/updateUser'
 
 export const addUserInfo = '/addUser'
