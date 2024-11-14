@@ -36,6 +36,7 @@ const usePermissionStore = defineStore('permission-route', {
             // 这样可以增加安全性
             data,
           })
+          console.log("获取到的菜单数据",res.data)
           return generatorRoutes(res.data)
         } else {
           return generatorRoutes(defaultRoutes)
@@ -54,7 +55,9 @@ const usePermissionStore = defineStore('permission-route', {
         roleId: userStore.roleId,
         userId: userStore.userId,
       })
+      console.log("生成的路由",accessRoutes)
       const mapRoutes = mapTwoLevelRouter(accessRoutes)
+      console.log("生成的两级路由", mapRoutes)
       mapRoutes.forEach((it: any) => {
         router.addRoute(it)
       })

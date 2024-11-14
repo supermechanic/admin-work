@@ -116,6 +116,7 @@ import {
 import useAppInfo from '@/hooks/useAppInfo'
 import useUserStore from '@/store/modules/user'
 import useAppConfigStore from '@/store/modules/app-config'
+import path from 'path'
 export default defineComponent({
   name: 'Login',
   components: { PhoneIcon, PasswordIcon, LogoGithub, LogoAlipay, LogoWechat },
@@ -144,24 +145,15 @@ export default defineComponent({
       })
         .then(({ data }: Response) => {
           userStore.saveUser(data as UserState).then(() => {
-            if (userStore.roleId == 3){
               router
-              .replace({
-                name: "DigitalMan"
-              }).then(() => {
-                loading.value = false
-              })
-            }else if ((userStore.roleId == 1) || (userStore.roleId == 2)){
-              router.replace({
-                path: route.query.redirect ? (route.query.redirect as string) : '/',
-              }).then(() => {
-                loading.value = false
-              })
-            }
-             
-            console.log("login success")
-
-          })
+                .replace({
+                  path: route.query.redirect ? (route.query.redirect as string) : '/',
+                })
+                .then(() => {
+                  console.log(path)
+                  loading.value = false
+                })
+            })
         })
         .catch((error) => {
           loading.value = false
